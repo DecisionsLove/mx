@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Página Principal</title>
+
+<!-- Fuente correcta -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg: #000;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,system-ui,sans-serif;
+}
+</style>
+
+<link rel="stylesheet" href="css/menu.css">
+<link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="navbar" id="navbar">
+
+  <div class="nav-left">
+    <span class="menu-btn">MENU</span>
+  </div>
+
+  <div class="nav-center">
+
+  </div>
+
+
+
+</header>
+
+
+
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="VIDEOS/VID-ROMINA.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <h1>Love<br>Decisions</h1>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- ===== INSTAGRAM (CORREGIDO EXACTO) ===== -->
+<section class="instagram-section">
+<div class="ig-header">
+  <p class="ig-title">INSTAGRAM</p>
+  <h2 class="ig-user">@LoveDecisions</h2>
+</section>
+
+<style>
+.instagram-section {
+  padding: 80px 10px;
+  background: #fff;
+  text-align: center;
+  font-family: Inter, system-ui, sans-serif;
+}
+.ig-title {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 10px;
+}
+.ig-user {
+  font-size: 22px;
+  font-weight: 600;
+}
+.ig-header {
+  position: relative;
+  text-align: center;
+}
+
+/* 🔥 LOGO LIBRE */
+.ig-logo {
+  position: absolute;
+  top: -70px; /* ajustas */
+  left: 50%;
+  transform: translateX(-50%);
+
+  height: 65px; /* control total */
+}
+</style>
+
+
+
+<section id="video">
+  <h2></h2>
+
+  <div class="video-box">
+    <blockquote class="instagram-media"
+      data-instgrm-permalink="https://www.instagram.com/reel/DW17T2hCIqX/">
+    </blockquote>
+  </div>
+</section>
+
+<script async src="//www.instagram.com/embed.js"></script>
+<style>#video {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.video-box {
+  display: flex;
+  justify-content: center;
+}
+
+/* Instagram responsive */
+.instagram-media {
+  width: 100% !important;
+  max-width: 400px !important;
+  min-width: unset !important;
+}</style>
+
+
+
+
+
+
+
+
+
+<section id="quiz">
+  <h2>💔 Decisiones en el amor</h2>
+
+  <div class="quiz-box">
+    <p id="pregunta"></p>
+    <div id="opciones"></div>
+    <p id="resultado"></p>
+  </div>
+</section>
+<style>
+ #quiz {
+  padding: 50px 15px;
+  text-align: center;
+  background: #f5f5f5;
+}
+
+#quiz h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.quiz-box {
+  max-width: 420px;
+  margin: auto;
+  background: white;
+  padding: 25px 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+#pregunta {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+/* BOTONES PRO */
+button {
+  width: 100%;
+  margin: 10px 0;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  background: #6c63ff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+/* efecto touch */
+button:active {
+  transform: scale(0.97);
+}
+
+button:hover {
+  background: #574fd6;
+}
+
+/* RESULTADO */
+#resultado {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* 📱 MOBILE EXTRA */
+@media (max-width: 480px) {
+  .quiz-box {
+    padding: 20px 15px;
+  }
+
+  #pregunta {
+    font-size: 16px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 14px;
+  }
+}
+.quiz-box {
+  animation: fadeIn .4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+<script>
+
+
+const preguntas = [
+{
+pregunta:"Tu pareja tarda en responder...",
+opciones:[
+{texto:"Te enojas", puntos:2},
+{texto:"Te preocupas", puntos:1},
+{texto:"Confías y esperas", puntos:0}
+]
+},
+{
+pregunta:"Tienen una discusión...",
+opciones:[
+{texto:"Gritas", puntos:2},
+{texto:"Te alejas", puntos:1},
+{texto:"Hablas tranquilo", puntos:0}
+]
+},
+{
+pregunta:"Sientes celos...",
+opciones:[
+{texto:"Reclamas", puntos:2},
+{texto:"Lo guardas", puntos:1},
+{texto:"Lo comunicas", puntos:0}
+]
+}
+];
+
+let i=0, puntaje=0;
+
+function cargarPregunta(){
+  let p=preguntas[i];
+  document.getElementById("pregunta").innerText=p.pregunta;
+
+  let html="";
+  p.opciones.forEach(op=>{
+    html += `<button onclick="responder(${op.puntos})">${op.texto}</button>`;
+  });
+
+  document.getElementById("opciones").innerHTML=html;
+}
+
+function responder(p){
+  puntaje+=p;
+  i++;
+
+  if(i<preguntas.length){
+    cargarPregunta();
+  } else {
+    let r = puntaje>=5 ? "Amor impulsivo 💥" :
+            puntaje>=3 ? "Amor inseguro 😕" :
+            "Amor sano ❤️";
+
+    document.getElementById("pregunta").innerText="Resultado:";
+    document.getElementById("opciones").innerHTML="";
+    document.getElementById("resultado").innerText=r;
+  }
+}
+
+cargarPregunta();
+
+</script>
+
+
+
+
+<!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo-contact">
+        <h2><img src="IMAGES/LOGO.webp" alt="Logo 1" class="logo1"></h2>
+        <p><strong>Encuéntranos en</strong></p>
+        <p>@LoveDecisions</p>
+        <p>CDMX📍</p>
+      </div>
+      <div class="footer-links">
+        <h4>¿Qué estás buscando?</h4>
+        <ul>
+          <li><a href="Integrantes.html">Integrantes</a></li>
+          <li><a href="SobreNosotros.html">¿Quiénes Somos?</a></li>
+          <li><a href="Informacion.html">Más Información</a></li>
+
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4>Síguenos en nuestras redes sociales</h4>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/lovedecisions?igsh=Y3g2ZndnZjdubW4="><img src="IMAGES/IG3.webp" alt="Instagram" /></a>
+          <a href="https://www.tiktok.com/@familiamondragonmezcal"><img src="IMAGES/TT2.webp" alt="TikTok" /></a>
+        </div>
+        
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© Love Decisions. Todos los derechos reservados.</p>
+      <p>Software Frankv_Hp</p>
+    </div>
+  </footer>
+
+
+
+<!-- ===== MENU ===== -->
+<div class="side-menu" id="sideMenu">
+  <button class="close-btn" id="closeMenu">✕</button>
+  <a href="index.html">Inicio</a>
+  <a href="Integrantes.html">Integrantes</a>
+  <a href="SobreNosotros.html">Sobre nosotros</a>
+  <a href="Informacion.html">Información</a>
+</div>
+
+
+
+
+<script src="js/menu.js"></script>
+
+</body>
+</html>
